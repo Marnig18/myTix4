@@ -11,7 +11,7 @@ import Event from './event'
 ReactDOM.render(
 <BrowserRouter>
 	<Switch>
-		<Route path="/home/" component={App} />
+		<Route path="/" component={App} />
 		<Route exact path="/events/:id" component={Event} />
 	</Switch>		
 </BrowserRouter>		

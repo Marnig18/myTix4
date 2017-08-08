@@ -66,7 +66,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 mongoose.promise = Promise
 if (process.env.MONGODB_URI) {
-	mongoose.connect("mongodb://@ds047591.mlab.com:47591/heroku_l4fgd664")
+	mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds161099.mlab.com:61099/heroku_5fq62n3h")
 } else {
 	mongoose.connect('mongodb://localhost/myTix2') // local mongo url
 }
