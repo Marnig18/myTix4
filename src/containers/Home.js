@@ -12,14 +12,21 @@ class Home extends React.Component{
 
 		this.state= {
 			currentEvents: [],
-			pastEvents: []
+			pastEvents: [],
+			userID: ""
 		}
 	}
 
-	componentDidMount(){
+	componentWillMount(){
 		console.log("Component Mounted");
+		this.setState({userID: this.props.user})
+		console.log(this.state.userID)
+}
 
-		helper.getCurrentEvents()
+componentDidMount(){
+	var userID = this.state.userID
+	console.log(userID)
+		helper.getCurrentEvents(userID)
 			.then(function(response){
 					this.setState({
 						currentEvents: response.data
@@ -28,7 +35,7 @@ class Home extends React.Component{
 			}.bind(this));
 
 
-		helper.getPastEvents()
+		helper.getPastEvents(userID)
 			.then(function(response){
 					this.setState({
 						pastEvents: response.data

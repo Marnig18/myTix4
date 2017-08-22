@@ -37,8 +37,9 @@ module.exports = function(app) {
     })
   })
 
-  app.get("/api/currentEvents", function(req, res) {
+  app.get("/api/currentEvents/:user", function(req, res) {
     Event.find({
+      "User": req.params.user,
       "StartDate": {
         $gte: today.toDate()
       }
@@ -52,9 +53,10 @@ module.exports = function(app) {
     })
   })
 
-  app.get("/api/pastEvents", function(req, res) {
+  app.get("/api/pastEvents/:user", function(req, res) {
 
     Event.find({
+      "User": req.params.user,
       "StartDate": {
         $lte: today.toDate()
       }

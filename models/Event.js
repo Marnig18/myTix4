@@ -18,12 +18,11 @@ var EventSchema = new Schema({
 
   StartDate: {
     type: Date,
-    required: true
   },
 
   EndDate: {
     type: Date, //use moment.js
-    required: true
+
   },
 
   picture: {

@@ -53,16 +53,17 @@ class App extends React.Component{
 	})
 }
 
-	makeNewEvent(newEventName, newEventStart, newEventEnd, newEventLocation, newEventPicture, options){
+	makeNewEvent(newEventName, newEventStart, newEventEnd, newEventLocation, newEventPicture, options, user){
+
 		axios
-			.post('/api/newEvent', {
+			.post('/api/newEvent/', {
 					Name: newEventName,
 					StartDate: newEventStart,
 					EndDate: newEventEnd,
 					location: newEventLocation,
 					picture: newEventPicture,
-					Option: this.state.options
-
+					Option: this.state.options,
+					User: this.props.user._id
 
 			})
 			.then(response =>{
@@ -122,6 +123,7 @@ class App extends React.Component{
 		}
 
 
+
 		// componentDidMount(){
 		//
 		// 	helper.getUser()
@@ -166,8 +168,8 @@ class App extends React.Component{
 					<Col xs={8}>
 						<div className="reactComponents">
 						<Switch>
-							<Route exact path="/home/user" render={(props) =><Home  editEvent={this.editEvent} editOption={this.editOption} user = {this.props.user}/>} />
-							<Route path="/home/user/newevent" render={(props)=><CreateNewEvent makeNewOption={this.makeNewOption} makeNewEvent={this.makeNewEvent} options={this.state.options}/>} />
+							<Route exact path="/home/user" render={(props) =><Home  editEvent={this.editEvent} editOption={this.editOption} user = {this.props.user} getCurrentEvents = {this.getCurrentEvents}/>} />
+							<Route path="/home/user/newevent" render={(props)=><CreateNewEvent makeNewOption={this.makeNewOption} makeNewEvent={this.makeNewEvent} options={this.state.options} user = {this.props.user}/>} />
 							<Route path="/home/user/editUser" component={Settings} />
 						</Switch>
 						</div>

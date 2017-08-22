@@ -69,7 +69,7 @@ class OG extends Component {
 				console.log('THERE IS A USER')
 				this.setState({
 					loggedIn: true,
-					user: response.data.user
+					user: response.data.user._id
 				})
 			} else {
 				this.setState({

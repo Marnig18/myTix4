@@ -84,25 +84,25 @@ class CreateNewEvent extends React.Component{
 							<form method="POST" action="/api/event" className="createForm">
 								<FormGroup controlId="newEventName">
 									<ControlLabel className="labels">Event Name</ControlLabel>
-									<FormControl type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter Name"/>
+									<FormControl type="text" value={this.state.newEventName} onChange={this.handleChange} placeholder="Enter Name"/>
 								</FormGroup>
 								<Form inline>
 									<FormGroup controlId="newEventStart" className="startInput">
 										<ControlLabel className="labels">Start Date</ControlLabel>
-										<FormControl  type="date" value={this.state.value} onChange={this.handleChange} placeholder=""/>
+										<FormControl  type="date" value={this.state.newEventStart} onChange={this.handleChange} placeholder=""/>
 									</FormGroup>
 									<FormGroup controlId="newEventEnd" className="endInput" >
 										<ControlLabel className="labels">End Date</ControlLabel>
-										<FormControl  type="date" value={this.state.value} onChange={this.handleChange} placeholder="Enter Name"/>
+										<FormControl  type="date" value={this.state.newEventEnd} onChange={this.handleChange} placeholder="Enter Name"/>
 									</FormGroup>
 								</Form>
 								<FormGroup controlId="newEventLocation">
 									<ControlLabel className="labels">Location</ControlLabel>
-									<FormControl type="text" value={this.state.value} onChange={this.handleChange} placeholder="Address"/>
+									<FormControl type="text" value={this.state.newEventLocation} onChange={this.handleChange} placeholder="Address"/>
 								</FormGroup>
 								<FormGroup controlId="newEventPicture">
 									<ControlLabel className="labels">Picture</ControlLabel>
-									<FormControl type="file" value={this.state.value} onChange={this.handleChange} />
+									<FormControl type="file" value={this.state.newEventPicture} onChange={this.handleChange} />
 								</FormGroup>
 								<Button type="button" onClick={this.showModal}>Add an Option</Button>
 									<Modal
