@@ -49,24 +49,14 @@ if (process.env.NODE_ENV === 'production') {
 /* Express app ROUTING */
 app.use('/auth', require('./auth'))
 
-
 // Requiring Models
 var Customer = require('../models/Customer')
 var Event = require("../models/Event")
 var Option = require("../models/Option")
 var User = require("./db/models/user")
 
-
-
 //host static docs
  app.use('/static', express.static("public"));
- // app.get('/', (req, res) => {
- // 	console.log('hello')
- // 	res.json({test: 'hello'})
- // })
- //Passport
- // app.use(session({ secret: "food secret", resave: true, saveUninitialized: true}));
-
 
 // Run Morgan for Logging
 app.use(logger("dev"));
@@ -74,9 +64,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-
-
 // ------------------------------------------------
 
 // MongoDB configuration (Change this URL to your own DB)
@@ -97,8 +84,7 @@ db.once('open', () => {
 // -------------------------------------------------
 
 require("../routes/api-routes")(app);
-// require("../routes/login-routes")(app);
-require("../routes/api-routes")(app);
+require("../routes/customer-api-routes")(app);
 // Starting our express server
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);

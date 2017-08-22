@@ -3,7 +3,6 @@ import { Button, Row, Col, ListGroupItem, PageHeader, Grid, Modal } from 'react-
 import { ListGroup } from 'react-bootstrap'
 import helper from "../utils/helpers"
 import CurrentEventsList from "../components/CurrentEventsList"
-import Graph from '../components/graphComponent'
 import PastEventsList from "../components/pastEventsList"
 
 class Home extends React.Component{
@@ -12,30 +11,16 @@ class Home extends React.Component{
 		super();
 
 		this.state= {
-
 			currentEvents: [],
 			pastEvents: []
-
-
 		}
-
-
 	}
-
-
-
-//--------------------------------
 
 	componentDidMount(){
 		console.log("Component Mounted");
 
-
-
-
 		helper.getCurrentEvents()
 			.then(function(response){
-				// var newEvents=this.state.events
-				// newEvents.push(response.data)
 					this.setState({
 						currentEvents: response.data
 					});
@@ -45,8 +30,6 @@ class Home extends React.Component{
 
 		helper.getPastEvents()
 			.then(function(response){
-				// var newEvents=this.state.events
-				// newEvents.push(response.data)
 					this.setState({
 						pastEvents: response.data
 					});
@@ -54,9 +37,6 @@ class Home extends React.Component{
 			}.bind(this));
 
 		}
-
-
-
 
 
 	render(){

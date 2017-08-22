@@ -27,9 +27,9 @@
 	<!-- Graph generation -->
 		<p align="center">
     <!--This draws the Canvas on the webpage -->
-      <canvas id="mycanvas"></canvas> 
+      <canvas id="mycanvas"></canvas>
     </p>
-     <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+     <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
 <script>
   // Canvas script
 
@@ -62,7 +62,7 @@
 		  	postDbEvent.totalRevenuePerType.push(0);
 		  	postDbEvent.totalTickets += result[0].Option[i].optionQuantity;
 		  	postDbEvent.totalTicketsPerType.push(result[0].Option[i].optionQuantity);
-		  	postDbEvent.pricePerType.push(result[0].Option[i].optionPrice);		  	
+		  	postDbEvent.pricePerType.push(result[0].Option[i].optionPrice);
 		  }
 		  // Populate with bought quantities
 		  for(var key in postDbEvent.ticketType){
@@ -84,9 +84,9 @@
 	var sketchProc = function(processingInstance) {
   with (processingInstance) {
     size(1000, 600);
-    frameRate(30);	
+    frameRate(30);
 
-	background(0, 0, 0);	
+	background(0, 0, 0);
 	var x = 10;
 	// var z = revenue.reduce(function(a, b) {
 	// 	return Math.max(a, b);
@@ -216,7 +216,7 @@
   // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
 
   var processingInstance = new Processing(canvas, sketchProc);
- 		});	
+ 		});
 	})
  </script>
 </body>

@@ -1,14 +1,12 @@
 import React from 'react'
 import { FormGroup, ListGroup, FormControl, ControlLabel, Form } from 'react-bootstrap'
 import { Button, Row, Col, ListGroupItem, PageHeader, Grid, Modal } from 'react-bootstrap';
-
 import axios from 'axios';
 import {LinkContainer} from "react-router-bootstrap"
 import {Route, Redirect} from 'react-router-dom'
-// import CurrentEvents from "./currentEvents"
 import EditOptionsList from './EditOptionsList'
 import moment from 'moment'
-import Graph from './graphComponent'
+
 
 
 class PastEvents extends React.Component{
@@ -20,9 +18,6 @@ class PastEvents extends React.Component{
 			show3: false
 		}
 	}
-
-
-
     showModal3 = () => {
     this.setState({show3: true});
 	  }
@@ -49,11 +44,10 @@ class PastEvents extends React.Component{
 								<Modal.Title>Data</Modal.Title>
 							</Modal.Header>
 							<Modal.Body>
-								<Graph /> 
 							</Modal.Body>
 							<Modal.Footer>
 								<Button onClick={this.hideModal3}>Close</Button>
-							</Modal.Footer>	
+							</Modal.Footer>
 						</Modal>
 				</Col>
 			</Row>

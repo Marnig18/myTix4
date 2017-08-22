@@ -10,7 +10,7 @@ var CustomerSchema = new Schema({
     type: String
   },
 
-  attended:{
+  attended: {
     type: Boolean
   },
 

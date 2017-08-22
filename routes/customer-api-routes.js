@@ -1,5 +1,5 @@
-var customerController = require("../controllers/customer");
-var Customer = require("../models/Customer"); 
+
+var Customer = require("../models/Customer");
 var Event = require("../models/Event");
 
 module.exports = function(app) {
@@ -8,7 +8,7 @@ module.exports = function(app) {
     console.log("message hit")
    Event.findOne({
     "_id": req.params.id
-   }).exec(function(err, doc){ 
+   }).exec(function(err, doc){
       if (err) {
         console.log(err)
       }
@@ -52,7 +52,7 @@ module.exports = function(app) {
 
   app.get("/ticket/:barcode", function(req, res) {
     console.log("ticket route hit")
-    Customer.findOne({ 
+    Customer.findOne({
       "barcode": req.params.barcode
     }).exec(function(err, doc) {
       if (err) {

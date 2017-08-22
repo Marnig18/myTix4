@@ -9,7 +9,7 @@ var OptionSchema = new Schema({
   optionName: {
     type: String,
     required: true
-  }, 
+  },
 
   optionDescription: {
     type: String
@@ -17,12 +17,11 @@ var OptionSchema = new Schema({
 
   optionPrice: {
     type: String
-   
+
   },
-  
+
   optionLocation: {
-    type: String,
-  
+    type: String
   },
 
   soldOut: {
@@ -32,7 +31,7 @@ var OptionSchema = new Schema({
   optionQuantity: {
     type: Number,
     required: true
-  }, 
+  },
 
   numberBought: {
     type: Number,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Row, Col } from 'react-bootstrap';
 import {  FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
-// import CurrentEvents from "./currentEvents"
+
 
 class EditOptions extends React.Component{
 	constructor(){
@@ -54,15 +54,8 @@ class EditOptions extends React.Component{
 			})
 		}
 
-
-
-											
-
-
 render(){
 	return(
-
-
 						<Row bsClass="row">
 							<Col componentClass={ControlLabel} xs={4}>
 									{this.props.name}
@@ -72,68 +65,67 @@ render(){
 					     			<FormGroup controlId="formEditOptionName">
 							     	 <Col componentClass={ControlLabel} xs={4}>
 							        	Name:
-							       	</Col>  
+							       	</Col>
 						       		<Col xs={8}>
-						       			<FormControl type="text" value={this.state.value} placeholder="" 
+						       			<FormControl type="text" value={this.state.value} placeholder=""
 						            onChange={this.handleChange}/>
 					       			</Col>
-					       		</FormGroup>	
+					       		</FormGroup>
 						       	</Row>
-						      
+
 
 						       	<Row bsClass="row">
 						       	<FormGroup controlId="formEditOptionPrice">
 						        	<Col componentClass={ControlLabel} xs={4}>
 						        		Price:
-						        	</Col>  
+						        	</Col>
 					       			<Col xs={8}>
-					       				<FormControl type="number" value={this.state.value} placeholder="" 
+					       				<FormControl type="number" value={this.state.value} placeholder=""
 					            	onChange={this.handleChange}/>
 					       			</Col>
 					       			</FormGroup>
-				       			</Row>	
-				       			
+				       			</Row>
+
 				       			<Row bsClas="row">
 				       			<FormGroup controlId="formEditOptionQuantity">
 							        <Col componentClass={ControlLabel} xs={4}>
-							        	Quantity: 
-							        </Col>  
+							        	Quantity:
+							        </Col>
 						       		<Col xs={8}>
-						       			<FormControl type="number" value={this.state.value} placeholder="" 
+						       			<FormControl type="number" value={this.state.value} placeholder=""
 						            onChange={this.handleChange}/>
 						       		</Col>
-						       	</FormGroup>	
+						       	</FormGroup>
 				       			</Row>
 				       			<Row bsClass="row">
 					       			<FormGroup controlId="formEditOptionLocation">
 								        <Col componentClass={ControlLabel} xs={4}>
 								        	Location:
-								        </Col>  
+								        </Col>
 							       		<Col xs={8}>
-							       			<FormControl componentClass="textarea" value={this.state.value} placeholder="" 
+							       			<FormControl componentClass="textarea" value={this.state.value} placeholder=""
 							            onChange={this.handleChange}/>
 							       		</Col>
 							       	</FormGroup>
-					       		</Row>	
-				       		
+					       		</Row>
+
 				       			<Row bsClass="row">
 					       			<FormGroup controlId="formEditOptionDescription">
 								        <Col componentClass={ControlLabel} xs={4}>
 								        	Description:
-								        </Col>  
+								        </Col>
 							       		<Col xs={8}>
-							       			<FormControl componentClass="textarea" value={this.state.value} placeholder="" 
+							       			<FormControl componentClass="textarea" value={this.state.value} placeholder=""
 							            onChange={this.handleChange}/>
 							       		</Col>
 							       	</FormGroup>
-					       		</Row>	
+					       		</Row>
 									</Col>
 									<Button type="submit" onClick={this.handleOptionEditSubmit}  bsStyle="primary">Save changes</Button>
-					   	 </Row> 
+					   	 </Row>
 
-					   	 )	
+					   	 )
 				}
 			}
 
-export default EditOptions				
-
+export default EditOptions

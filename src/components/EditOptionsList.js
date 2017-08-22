@@ -4,40 +4,20 @@ import { ListGroup, FormGroup, FormControl, ControlLabel, Form } from 'react-boo
 import EditOptions from "./EditOptions"
 
 class EditOptionsList extends React.Component{
-	// constructor(){
-	// 	super();
-
-	// 	// var array= this.props.currentEvents[0]
-	// 	// 	console.log(array)
-		
-	// 	this.state={
-	// 		items: []
-	// 	}
-	// }
-
-
-		
 
 	render(){
-		
-		 
-
-
 			return (
-				<ListGroup>		
-					
+				<ListGroup>
 					{this.props.options.map(item =>
-				
 						<ListGroupItem key={item._id}>
 							<EditOptions  editEvent={this.props.editEvent} name={item.optionName} id={item._id} editOption={this.props.editOption}/>
 						</ListGroupItem>
-			
 					)}
-				</ListGroup>	
+				</ListGroup>
 
 				)
 		}
-	
+
 	}
 
 export default EditOptionsList;

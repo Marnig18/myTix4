@@ -8,7 +8,6 @@ import {Route, Redirect} from 'react-router-dom'
 // import CurrentEvents from "./currentEvents"
 import EditOptionsList from './EditOptionsList'
 import moment from 'moment'
-import Graph from './graphComponent'
 
 
 
@@ -31,7 +30,7 @@ class CurrentEvents extends React.Component{
 			url: "",
 			barcode: '',
 			before: false
-		
+
 		}
 		this.handleChange=this.handleChange.bind(this)
 		this.handleEditSubmit=this.handleEditSubmit.bind(this)
@@ -58,7 +57,7 @@ class CurrentEvents extends React.Component{
 	  }
 	//--------------------------------
 	//--------
-	
+
 	handleScanChange = event => {
 		this.setState({
 			[event.target.id]: event.target.value
@@ -82,9 +81,7 @@ class CurrentEvents extends React.Component{
 	}
 
 		 handleChange = (event) => {
-    // Here we create syntax to capture any change in text to the query terms (pre-search).
-    // See this Stack Overflow answer for more details:
-    // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
+
 
 	    var newState = {};
 	    newState[event.target.id] = event.target.value
@@ -127,7 +124,7 @@ class CurrentEvents extends React.Component{
 					before: true
 				})
 			}
-		
+
 
 			this.setState({
 				eventID: this.props.id,
@@ -135,25 +132,14 @@ class CurrentEvents extends React.Component{
 				endDate: endFormated,
 				current: now,
 				url: "/events/" + ID
-			
+
 			})
-		
+
 		}
-
-		
-
-		
-
-		
-
 
 	render(){
 		const before = this.state.before
 		return(
-		// 	<ListGroup>
-		// 		{this.props.currentEvents.map((obj, index) =>
-		// 		<ListGroupItem key={index}>
-
 					<Row bsClass="row" className="listItem">
 						<Col bsClass="col" xs={8}>
 							<h4>{this.props.name}</h4>
@@ -162,14 +148,13 @@ class CurrentEvents extends React.Component{
 								<FormGroup controlId="scanTicket">
 									<Col componentClass={ControlLabel} xs={3}>
 										Scan Ticket
-					        </Col>  
+					        </Col>
 					       	<Col xs={9}>
-					       		<FormControl type="text" id="barcode" value={this.state.barcode} placeholder="Click here, then scan ticket." 
+					       		<FormControl type="text" id="barcode" value={this.state.barcode} placeholder="Click here, then scan ticket."
 					            onChange={this.handleScanChange} onKeyUp={this.handleScanSubmit}/>
 					       	</Col>
 					      </FormGroup>
 						</Col>
-
 						<Col bsClass="col" xs={4}>
 							<Button className="homeButtons" onClick={this.showModal} block>Edit Event</Button>
 								<Modal
@@ -183,76 +168,61 @@ class CurrentEvents extends React.Component{
 											<FormGroup controlId="formEditName">
 												<Col componentClass={ControlLabel} xs={2}>
 													Event Name
-								        </Col>  
+								        </Col>
 								       	<Col xs={10}>
-								       		<FormControl type="text" value={this.state.value} placeholder="Enter text" 
+								       		<FormControl type="text" value={this.state.value} placeholder="Enter text"
 								            onChange={this.handleChange}/>
 								       	</Col>
-								       </FormGroup>	
+								       </FormGroup>
 								       <FormGroup controlId="formEditStartDate">
 													<Col componentClass={ControlLabel} xs={2}>
 														Start Date
-									        </Col>  
+									        </Col>
 									       	<Col xs={10}>
-									       		<FormControl type="date" value={this.state.value} placeholder="" 
+									       		<FormControl type="date" value={this.state.value} placeholder=""
 									            onChange={this.handleChange}/>
 									       	</Col>
 								       </FormGroup>
 								       <FormGroup controlId="formEditEndDate">
 													<Col componentClass={ControlLabel} xs={2}>
 														End Date
-									        </Col>  
+									        </Col>
 									       	<Col xs={10}>
-									       		<FormControl type="date" value={this.state.value} placeholder="" 
+									       		<FormControl type="date" value={this.state.value} placeholder=""
 									            onChange={this.handleChange}/>
 									       	</Col>
 								       </FormGroup>
 								       <FormGroup controlId="formEditLocation">
 													<Col componentClass={ControlLabel} xs={2}>
 														End Date
-									        </Col>  
+									        </Col>
 									       	<Col xs={10}>
-									       		<FormControl type="date" value={this.state.value} placeholder="Address" 
+									       		<FormControl type="date" value={this.state.value} placeholder="Address"
 									            onChange={this.handleChange}/>
 									       	</Col>
 								       </FormGroup>
 								       <FormGroup controlId="formEditPicture">
 													<Col componentClass={ControlLabel} xs={2}>
 														Picture
-									        </Col>  
+									        </Col>
 									       	<Col xs={10}>
-									       		<FormControl type="file" value={this.state.value} placeholder="" 
+									       		<FormControl type="file" value={this.state.value} placeholder=""
 									            onChange={this.handleChange}/>
 									       	</Col>
 								       </FormGroup>
-								       	
-									       				<EditOptionsList options={this.props.options} editOption={this.props.editOption}/>
-											
+									     <EditOptionsList options={this.props.options} editOption={this.props.editOption}/>
 													</Modal.Body>
 													<Modal.Footer>
-												
 											        <Button onClick={this.hideModal} >Close</Button>
 											        <Button type="submit" onClick={this.handleOptionSubmit} onClick={this.hideModal}  bsStyle="primary">Save changes</Button>
 											      </Modal.Footer>
-										
+
 												</Form>
 										</Modal>
-
-
-
 								<Button className="homeButtons" block >View Data</Button>
 								<Button className="homeButtons" block href={this.state.url}>Customer Page</Button>
-
 						</Col>
-						
 					</Row>
-		
-
-				
-			//  	</ListGroupItem>
-			//  )}
-			// </ListGroup>
-
 		)
 	}
 }
