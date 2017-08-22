@@ -19,7 +19,7 @@ var today = moment().startOf('day')
 
 app.post("/api/newOption", function(req, res){
 
-	
+
 
 		var entry = new Option(req.body);
 
@@ -39,7 +39,7 @@ app.post("/api/newOption", function(req, res){
 app.post("/api/newEvent", function(req, res){
 
 
-	
+
 	var entry = new Event(req.body);
 
 	entry.save(function(err, doc){
@@ -56,8 +56,9 @@ app.post("/api/newEvent", function(req, res){
 
 
 	app.get("/api/currentEvents", function(req, res){
-		
+
 		Event.find({
+		
 		"StartDate":{$gte: today.toDate()}
 	}).exec(function(err, doc){
 
@@ -71,7 +72,7 @@ app.post("/api/newEvent", function(req, res){
 	})
 
 	app.get("/api/pastEvents", function(req, res){
-		
+
 		Event.find({
 		"StartDate":{$lte: today.toDate()}
 	}).exec(function(err, doc){
@@ -108,7 +109,7 @@ app.post("/api/newEvent", function(req, res){
 	app.post("/api/Option/:id", function(req, res){
 		Option.findByIdAndUpdate({
 			"_id": req.params.id
-		}, {$set: 
+		}, {$set:
 			{optionName: req.body.optionName,
 				optionPrice: req.body.optionPrice,
 				optionQuantity: req.body.optionQuantity,
@@ -129,14 +130,14 @@ app.get("/api/barcode/:barcode", function(req, res){
   var barcode = parseInt(req.params.barcode);
   // var objBarcode = {barcode: barcode}
   console.log("In API barcode " + barcode);
-  // Is it in the database, if so run this function	
+  // Is it in the database, if so run this function
 	Customer.findOne({barcode: barcode}).exec(function(err, doc){
 		console.log("In api barcode, after Customer.find.exec Doc");
 		console.log(doc);
 		console.log(doc.attended);
 		var attended = doc.attended;
-    if(err) throw err 
-    
+    if(err) throw err
+
     else if(doc.attended){
     	console.log("In else if before 2nd query");
 			Customer.findOneAndUpdate({barcode: barcode}, {$set: {attended: false}}, function(err, doc){
@@ -165,10 +166,7 @@ app.get("/api/eventSearch/:event", function(req, res){
     }
 	})
 })
-	
+
 
 
 	}
-
-
-

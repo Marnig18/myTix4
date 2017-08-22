@@ -57,66 +57,66 @@ class LoginForm extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 			}
 			return (
-				{/*<ListGroup>		
+				{/*<ListGroup>
 								{this.props.currentEvents.map((obj, index) =>
-									
+
 									<ListGroupItem key={index}>
 										<CurrentEvents  />
 									</ListGroupItem>
 									)}
-								
+
 								</ListGroup>	*/},
 
 				<div id="loginContainer">
-				
-			
+
+
 
 				<div className="container">
 				  <div className="wrapper">
-				    <form action="" method="post" className="form-signin login">       
+				    <form action="" method="post" className="form-signin login">
 				      <h2 className="form-signin-heading">Please login</h2>
 
 				      <label htmlFor="username">Email</label>
 				      <input
-				       type="email" 
+				       type="email"
 				       className="form-control"
 				       id="email-input"
-				       name="email" 
-				       placeholder="Email Address" required="" 
+				       name="email"
+				       placeholder="Email Address" required=""
 				       value={this.state.email}
 								onChange={this.handleChange}>
 				      </input>
-				      
+
 				      <label htmlFor="password">Password</label>
-				      <input 
-				      type="password" 
-				      className="form-control" 
-				      id="password-input" 
-				      name="password" 
+				      <input
+				      type="password"
+				      className="form-control"
+				      id="password-input"
+				      name="password"
 				      placeholder="Password"
 				      required=""
 				      value={this.state.password}
 							onChange={this.handleChange}>
 				      </input>
 
-				      
+
 				      {/*<label className="checkbox">
 				        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me</input>
 				      </label>*/}
-				      <button onClick={this.handleSubmit} className="btn btn-lg btn-primary btn-block" id="loginSubmit">Login</button> 
-				    
+				      <button onClick={this.handleSubmit} className="btn btn-lg btn-primary btn-block" id="loginSubmit">Login</button>
+
 				          <p className="text-center register-link">New to our App? <Link to="/register">Register</Link></p>
 				    </form>
 				  </div>
-			
+
 				 	<Route exact path="/home/user" render={(props)=><App loggedIn = {this.state.loggedIn}/>} />
 					<Route path="/register" component={Register} />
-					  
+
 				</div>
 			</div>
 
 		)
-	}	
+	}
 }
 
 export default LoginForm

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Redirect } from 'react-router-dom'
 // import './App.css'
 import LoginForm from './login-components/login'
 import SignupForm from './login-components/Register'
@@ -19,19 +19,19 @@ const DisplayLinks = props => {
 						</Link>
 					</li>
 					<li>
-						<Link to="#" className="nav-link" onClick={props._logout}>
+						<Link to="/" className="nav-link" onClick={props._logout}>
 							Logout
 						</Link>
 					</li>
 				</ul>
 			</nav>
 		)
-	} else { 
+	} else {
 		return (
 			<nav className="navbar">
 				<ul className="nav">
 					<li className="nav-item">
-						<Link to="/" className="nav-link">
+						<Link to="/login" className="nav-link">
 							Home
 						</Link>
 					</li>
@@ -82,7 +82,7 @@ class OG extends Component {
 
 	_logout(event) {
 		event.preventDefault()
-		console.log('logging out')
+		console.log('logged out')
 		axios.post('/auth/logout').then(response => {
 			console.log(response.data)
 			// console.log(response)
@@ -114,21 +114,32 @@ class OG extends Component {
 	}
 
 	render() {
-		return (
+		const loggedIn = this.state.loggedIn
+		let userContainer= null
+
+		if (loggedIn) {
+			userContainer=<App loggedIn={this.state.loggedIn} user={this.state.user}/>
+			}
+			else{
+			userContainer=
+			<LoginForm  _logout={this._logout} _login={this._login} loggedIn={this.state.loggedIn}/>
+			}
+			return (
+
 			<div className="App">
-				
+
 
 				{/* LINKS to our different 'pages' */}
 				<DisplayLinks _logout={this._logout} loggedIn={this.state.loggedIn} />
 
-				<LoginForm _logout={this._logout} _login={this._login} loggedIn={this.state.loggedIn}/>
-
+				{/* <LoginForm _logout={this._logout} _login={this._login} loggedIn={this.state.loggedIn}/> */}
+					{/* <Route exact path="/home/user" render={(props)=> <App loggedIn = {this.state.loggedIn} user ={this.state.user}/>}  /> */}
 				{/*  ROUTES */}
+				{userContainer}
 
-				<Route exact path="/home/user" render={(props)=> <App loggedIn = {this.state.loggedIn} user ={this.state.user}/>}  />
-				
-				
-				
+
+
+
 				<Route exact path="/signup" component={SignupForm} />
 				{/* <LoginForm _login={this._login} /> */}
 			</div>

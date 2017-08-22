@@ -45,9 +45,9 @@ class App extends React.Component{
 				console.log(response.data)
 				var newOptions = this.state.options
 				newOptions.push(response.data)
-				this.setState({	
+				this.setState({
 
-						options: newOptions 
+						options: newOptions
 
 		})
 	})
@@ -63,13 +63,13 @@ class App extends React.Component{
 					picture: newEventPicture,
 					Option: this.state.options
 
-					
+
 			})
 			.then(response =>{
 				console.log(response.data)
 				var newEvent = this.state.events
 				newEvent.push(response.data)
-				this.setState({	
+				this.setState({
 
 						events: newEvent
 					})
@@ -122,17 +122,17 @@ class App extends React.Component{
 		}
 
 
-		componentDidMount(){
-
-			helper.getUser()
-			.then(function(response){
-
-				this.setState({
-					user: response.data,
-				})
-			}.bind(this));
-
-			}
+		// componentDidMount(){
+		//
+		// 	helper.getUser()
+		// 	.then(function(response){
+		//
+		// 		this.setState({
+		// 			user: response.data,
+		// 		})
+		// 	}.bind(this));
+		//
+		// 	}
 
 
 
@@ -148,7 +148,7 @@ class App extends React.Component{
 	            <div className="col-sm-7">
 	              <h2 id="siteName">MyTix</h2>
 	            </div>
-	      
+
 	          </div>
 	        </div>
 	      </div>
@@ -158,25 +158,25 @@ class App extends React.Component{
 				<Row bsClass="row">
 					<Col bsClass="col" xs={4}>
 						<Nav bsStyle="pills" stacked activeKey={1} id="nav">
-							<LinkContainer exact to="/home/"><NavItem  id=" navItem" eventKey={1}>Home</NavItem></LinkContainer>
-							<LinkContainer exact to="/home/newevent"><NavItem  eventKey={2}>Create New Events</NavItem></LinkContainer>
-							<LinkContainer exact to= "/home/editUser"><NavItem eventKey={3}>User Settings</NavItem></LinkContainer>
-						</Nav>	
-					</Col>	
+							<LinkContainer exact to="/home"><NavItem  id=" navItem" eventKey={1}>Home</NavItem></LinkContainer>
+							<LinkContainer exact to="/home/user/newevent"><NavItem  eventKey={2}>Create New Events</NavItem></LinkContainer>
+							<LinkContainer exact to= "/home/user/editUser"><NavItem eventKey={3}>User Settings</NavItem></LinkContainer>
+						</Nav>
+					</Col>
 					<Col xs={8}>
 						<div className="reactComponents">
 						<Switch>
-							<Route exact path="/home/" render={(props) =><Home  editEvent={this.editEvent} editOption={this.editOption} user = {this.props.user}/>} />
-							<Route exact path="/home/newevent" render={(props)=><CreateNewEvent makeNewOption={this.makeNewOption} makeNewEvent={this.makeNewEvent} options={this.state.options}/>} />
-							<Route exact path="/home/editUser" component={Settings} />
+							<Route exact path="/home/user" render={(props) =><Home  editEvent={this.editEvent} editOption={this.editOption} user = {this.props.user}/>} />
+							<Route path="/home/user/newevent" render={(props)=><CreateNewEvent makeNewOption={this.makeNewOption} makeNewEvent={this.makeNewEvent} options={this.state.options}/>} />
+							<Route path="/home/user/editUser" component={Settings} />
 						</Switch>
 						</div>
 					</Col>
 				</Row>
 			</Grid>
-		</div>					
+		</div>
 		);
-	
+
 
 
 	}

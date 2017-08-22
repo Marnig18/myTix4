@@ -12,7 +12,7 @@ class Home extends React.Component{
 		super();
 
 		this.state= {
-		
+
 			currentEvents: [],
 			pastEvents: []
 
@@ -30,14 +30,14 @@ class Home extends React.Component{
 		console.log("Component Mounted");
 
 
-			
+
 
 		helper.getCurrentEvents()
 			.then(function(response){
 				// var newEvents=this.state.events
 				// newEvents.push(response.data)
 					this.setState({
-						currentEvents: response.data				
+						currentEvents: response.data
 					});
 				console.log(response)
 			}.bind(this));
@@ -48,7 +48,7 @@ class Home extends React.Component{
 				// var newEvents=this.state.events
 				// newEvents.push(response.data)
 					this.setState({
-						pastEvents: response.data				
+						pastEvents: response.data
 					});
 				console.log(response)
 			}.bind(this));
@@ -75,10 +75,10 @@ class Home extends React.Component{
 						</Col>
 					</Row>
 					<Row bsClass='row'>
-						
+
 					</Row>
 				</Grid>
-		
+
 		)
 	}
 }

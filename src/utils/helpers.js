@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 
 
@@ -16,8 +17,8 @@ const helper = {
   // 	return axios.get("/events/" + id)
   // }
 
-  getUser: function(){
-  	return axios.get("/user/")
-  }
+  // getUser: function(){
+  // 	return axios.get("/user")
+  // }
 }
   export default helper;
